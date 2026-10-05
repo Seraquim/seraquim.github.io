@@ -1,0 +1,141 @@
+/* ==========================================================================
+   Page head — the opening of every inner page: a label, a large title and
+   a short introduction.
+   ========================================================================== */
+
+.page-head {
+  display: grid;
+  gap: 1.5rem var(--gap);
+  padding: clamp(3rem, 12vh, 8rem) max(var(--gutter), (100% - var(--max)) / 2) 0;
+}
+
+.page-head h1 {
+  font-size: clamp(3rem, 1.2rem + 7vw, 8rem);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+
+.page-head__intro {
+  max-width: 40ch;
+  font-size: var(--t-md);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--muted);
+}
+
+@media (min-width: 64em) {
+  .page-head {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: end;
+  }
+
+  .page-head .label {
+    grid-column: 1 / -1;
+  }
+
+  .page-head h1 {
+    grid-column: 1 / 8;
+  }
+
+  .page-head__intro {
+    grid-column: 8 / -1;
+    padding-bottom: 0.6rem;
+  }
+}
+
+/* --- Filters (Work, Archive) -------------------------------------------- */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  font-size: var(--t-sm);
+}
+
+.filters button {
+  padding-block: 0.25rem;
+  border-bottom: 1px solid transparent;
+  color: var(--muted);
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.filters button:hover {
+  color: var(--fg);
+}
+
+.filters button[aria-pressed="true"] {
+  color: var(--fg);
+  border-color: var(--fg);
+}
+
+.filters sup {
+  margin-left: 0.2rem;
+  font-family: var(--f-mono);
+  font-size: 0.625rem;
+}
+
+/* Without JS every item shows and the filter bar has nothing to do. */
+html:not(.js) .filters {
+  display: none;
+}
+
+[data-filter-item][hidden] {
+  display: none;
+}
+
+/* --- Prose (notes, about) ------------------------------------------------ */
+
+.prose {
+  max-width: 38rem;
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+.prose p + p,
+.prose p + ul,
+.prose ul + p {
+  margin-top: 1.25em;
+}
+
+.prose h2 {
+  margin: 2.5em 0 0.75em;
+  font-size: var(--t-md);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.prose ul {
+  padding-left: 1.1em;
+}
+
+.prose li + li {
+  margin-top: 0.4em;
+}
+
+.prose figure {
+  margin: 2.5em 0;
+}
+
+.prose figure img {
+  width: 100%;
+}
+
+.prose figcaption {
+  margin-top: 0.75rem;
+}
+
+.prose blockquote {
+  margin: 2em 0;
+  padding-left: 1.25rem;
+  border-left: 1px solid var(--fg);
+  font-size: var(--t-md);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.prose a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}

@@ -1,0 +1,38 @@
+/* ==========================================================================
+   Layout — sections, the 12-column grid, section heads.
+   ========================================================================== */
+
+.sec {
+  padding: var(--sec-y) max(var(--gutter), (100% - var(--max)) / 2) 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gap);
+}
+
+/* Section head: a number, a title, and an optional link on the right. */
+.sec-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 1rem 2rem;
+  margin-bottom: clamp(3rem, 6vw, 5.5rem);
+}
+
+.sec-head .label {
+  flex-basis: 100%;
+}
+
+.sec-head h2 {
+  max-width: 18ch;
+  font-size: var(--t-xl);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.sec-head .arrow {
+  margin-left: auto;
+}

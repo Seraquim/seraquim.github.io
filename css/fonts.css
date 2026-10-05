@@ -1,0 +1,32 @@
+/* Self-hosted, latin subset (SIL Open Font License). */
+
+@font-face {
+  font-family: "Anybody";
+  src: url("/assets/fonts/anybody-normal-100-900.woff2") format("woff2");
+  font-weight: 100 900;
+  font-stretch: 50% 150%;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Schibsted Grotesk";
+  src: url("/assets/fonts/schibsted-grotesk-normal-400-900.woff2") format("woff2");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Schibsted Grotesk";
+  src: url("/assets/fonts/schibsted-grotesk-italic-400-700.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/assets/fonts/ibm-plex-mono-normal-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}

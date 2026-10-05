@@ -1,0 +1,43 @@
+/* ==========================================================================
+   Footer — the index again (also the no-JS menu), elsewhere, and a sign-off.
+   ========================================================================== */
+
+.foot {
+  margin-top: var(--sec-y);
+  padding: 2rem var(--gutter) 4.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: var(--t-sm);
+}
+
+.foot__inner {
+  display: grid;
+  gap: 2rem;
+  max-width: var(--max);
+  margin-inline: auto;
+}
+
+.foot ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+}
+
+.foot a {
+  color: var(--muted);
+  transition: color 0.3s;
+}
+
+.foot a:hover {
+  color: var(--fg);
+}
+
+.foot__sign {
+  color: var(--muted);
+}
+
+@media (min-width: 64em) {
+  .foot__inner {
+    grid-template-columns: 1fr auto auto;
+    gap: 4rem;
+  }
+}

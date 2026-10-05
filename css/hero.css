@@ -1,0 +1,97 @@
+/* ==========================================================================
+   Hero — a statement, a little air, and SERAQUIM set across the full
+   width. The letters lean gently towards the cursor (see hero.js).
+   ========================================================================== */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4rem;
+  min-height: calc(100svh - 4.5rem);
+  padding: clamp(2.5rem, 8vh, 7rem) var(--gutter) 1.5rem;
+}
+
+.hero__top {
+  display: grid;
+  gap: 1.5rem var(--gap);
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+}
+
+.hero__lede {
+  max-width: 16ch;
+  font-size: clamp(2rem, 1.1rem + 3.4vw, 4.25rem);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.hero__support {
+  max-width: 34ch;
+  color: var(--muted);
+}
+
+.hero__bottom {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+}
+
+.mast {
+  min-width: 0;
+  font-family: var(--f-display);
+  font-size: var(--fit-size, 18vw);
+  font-weight: 700;
+  line-height: 0.76;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+
+.mast__word {
+  display: inline-flex;
+  transform-origin: 0 50%;
+}
+
+.mast__l {
+  display: inline-block;
+  font-variation-settings: "wdth" var(--w, 100);
+}
+
+.mast.is-measuring .mast__l {
+  font-variation-settings: "wdth" 100;
+}
+
+/* One accent letter — the Q, which breaks its own box. */
+.mast__l:nth-child(5) {
+  color: var(--accent);
+}
+
+.hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-size: var(--t-sm);
+  color: var(--muted);
+}
+
+@media (min-width: 48em) {
+  .hero__top {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: end;
+  }
+
+  .hero__lede {
+    grid-column: 1 / 9;
+  }
+
+  .hero__support {
+    grid-column: 9 / -1;
+  }
+}
