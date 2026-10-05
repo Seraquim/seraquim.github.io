@@ -1,0 +1,71 @@
+/* ==========================================================================
+   Selected work — one wide feature, then an offset pair. Images do the
+   talking; captions stay small.
+   ========================================================================== */
+
+.work {
+  display: grid;
+  gap: clamp(4rem, 9vw, 8rem);
+}
+
+.work__pair {
+  display: grid;
+  gap: clamp(4rem, 9vw, 8rem) var(--gap);
+}
+
+.work__media {
+  display: block;
+  overflow: hidden;
+  background: var(--rule);
+}
+
+.work__media img {
+  width: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease);
+}
+
+.work__item:hover .work__media img {
+  transform: scale(1.025);
+}
+
+.work__item--wide img { aspect-ratio: 16 / 9; }
+.work__item--tall img { aspect-ratio: 4 / 5; }
+.work__item--square img { aspect-ratio: 1; }
+
+.work__cap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.25rem 1.5rem;
+  margin-top: 1.25rem;
+}
+
+.work__title {
+  font-size: var(--t-md);
+  letter-spacing: -0.02em;
+}
+
+.work__sum {
+  max-width: 44ch;
+  margin-top: 0.5rem;
+  font-size: var(--t-sm);
+  color: var(--muted);
+}
+
+@media (min-width: 48em) {
+  .work__pair {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .work__pair .work__item:first-child {
+    grid-column: 1 / 7;
+  }
+
+  .work__pair .work__item:last-child {
+    grid-column: 8 / -1;
+    margin-top: 40%;
+  }
+}

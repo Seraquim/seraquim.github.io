@@ -1,0 +1,8 @@
+{
+  "name": "SERAQUIM",
+  "short_name": "SRQ",
+  "icons": [{ "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }],
+  "theme_color": "#F4F2ED",
+  "background_color": "#F4F2ED",
+  "display": "browser"
+}

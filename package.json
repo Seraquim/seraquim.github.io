@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "build:css": "cleancss css/tokens.css css/fonts.css css/base.css css/layout.css css/header.css css/slug.css css/index-dialog.css css/footer.css css/page.css css/hero.css css/work.css css/work-index.css css/project.css css/disciplines.css css/process.css css/archive.css css/about.css css/notes.css css/contact.css css/pages.css css/motion.css -o style.min.css",
+    "build:js": "terser js/core.js js/fit.js js/slug.js js/index-dialog.js js/hero.js js/reveal.js js/disciplines.js js/filter.js js/lightbox.js js/contact.js -o script.min.js --compress --mangle",
+    "build": "npm run build:css && npm run build:js",
+    "serve": "python3 -m http.server 8899",
+    "placeholders": "node tools/placeholders.mjs"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "terser": "^5.51.2"
+  }
+}

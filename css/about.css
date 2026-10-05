@@ -1,0 +1,143 @@
+/* ==========================================================================
+   About — portrait and a short statement.
+   ========================================================================== */
+
+.about {
+  display: grid;
+  gap: 2.5rem var(--gap);
+}
+
+.about__portrait {
+  max-width: 20rem;
+}
+
+.about__portrait img {
+  width: 100%;
+}
+
+.about__portrait figcaption {
+  margin-top: 0.75rem;
+}
+
+.about__text {
+  display: grid;
+  gap: 1.5rem;
+  align-content: start;
+}
+
+.about__big {
+  max-width: 22ch;
+  font-size: var(--t-lg);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
+.about__text p:not(.about__big) {
+  max-width: 50ch;
+  color: var(--muted);
+}
+
+@media (min-width: 48em) {
+  .about {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .about__portrait {
+    grid-column: 1 / 5;
+  }
+
+  .about__text {
+    grid-column: 6 / 12;
+  }
+}
+
+/* --- About page ---------------------------------------------------------- */
+
+.bio {
+  display: grid;
+  gap: 3rem var(--gap);
+}
+
+.bio__portrait {
+  max-width: 24rem;
+}
+
+.bio__portrait img {
+  width: 100%;
+}
+
+.bio__portrait figcaption {
+  margin-top: 0.75rem;
+}
+
+.facts {
+  display: grid;
+  gap: 0;
+}
+
+.facts > div {
+  display: grid;
+  gap: 0.5rem var(--gap);
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.facts > div:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.facts dd {
+  font-size: var(--t-md);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+
+.facts dd ul {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.facts dd small {
+  display: block;
+  font-size: var(--t-sm);
+  color: var(--muted);
+  letter-spacing: 0;
+}
+
+.exp li {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.exp li span:last-child {
+  font-size: var(--t-sm);
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+@media (min-width: 64em) {
+  .bio {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .bio__portrait {
+    grid-column: 1 / 5;
+    position: sticky;
+    top: 3rem;
+    align-self: start;
+  }
+
+  .bio__text {
+    grid-column: 6 / -1;
+  }
+
+  .facts > div {
+    grid-template-columns: 12rem 1fr;
+  }
+}
+
+.bio__more {
+  margin-top: 3rem;
+}

@@ -1,0 +1,43 @@
+/* ==========================================================================
+   Tokens — colour, type, space and timing. Components use the role tokens
+   (--bg, --fg, --muted, --rule, --accent), never raw colours.
+   ========================================================================== */
+
+:root {
+  /* Palette */
+  --ink: #141413;
+  --paper: #f4f2ed;
+  --stone: #6b6862;     /* secondary text — 5.1:1 on paper */
+  --mist: #a8a49c;      /* decorative only, never text */
+  --verm: #d9481f;      /* Proof Vermilion — used sparingly */
+  --verm-ink: #b2380f;  /* vermilion allowed to set small text on paper */
+
+  /* Roles */
+  --bg: var(--paper);
+  --fg: var(--ink);
+  --muted: var(--stone);
+  --rule: rgb(20 20 19 / 0.12);
+  --accent: var(--verm);
+  --accent-text: var(--verm-ink);
+
+  /* Type */
+  --f-display: "Anybody", "Helvetica Neue", Arial, sans-serif;
+  --f-sans: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  --t-xs: 0.75rem;
+  --t-sm: 0.875rem;
+  --t-body: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  --t-md: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --t-lg: clamp(1.75rem, 1.2rem + 2vw, 3rem);
+  --t-xl: clamp(2.25rem, 1.2rem + 3.6vw, 4.5rem);
+
+  /* Space */
+  --gutter: clamp(1.25rem, 4vw, 4rem);
+  --gap: clamp(1rem, 2vw, 2rem);
+  --sec-y: clamp(6rem, 4rem + 9vw, 12rem);
+  --max: 90rem;
+
+  /* Motion */
+  --ease: cubic-bezier(0.2, 0.7, 0, 1);
+}

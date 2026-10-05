@@ -1,0 +1,139 @@
+/* ==========================================================================
+   The Index — full navigation in a native <dialog>: focus is trapped and
+   Esc closes it. Opened from the Slug, the header menu, or the "I" key.
+   ========================================================================== */
+
+.ix {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--bg);
+  color: var(--fg);
+  overflow: auto;
+}
+
+.ix::backdrop {
+  background: var(--bg);
+}
+
+.ix__inner {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 1.5rem var(--gutter) 2rem;
+}
+
+.ix__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--t-sm);
+}
+
+.ix__head p {
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.ix__list {
+  margin-block: auto;
+  padding-block: 3rem;
+}
+
+.ix__item {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  align-items: baseline;
+  padding-block: 0.4rem;
+}
+
+.ix__no {
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  color: var(--muted);
+}
+
+.ix__name {
+  font-size: clamp(2.5rem, 1rem + 6vw, 6rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  transition: color 0.3s, transform 0.5s var(--ease);
+}
+
+.ix__meta {
+  display: none;
+  font-size: var(--t-sm);
+  color: var(--muted);
+}
+
+.ix__list:hover .ix__name {
+  color: var(--mist);
+}
+
+.ix__list .ix__item:hover .ix__name,
+.ix__item:focus-visible .ix__name {
+  color: var(--fg);
+  transform: translateX(0.5rem);
+}
+
+.ix__item[aria-current] .ix__no {
+  color: var(--accent-text);
+}
+
+.ix__foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  font-size: var(--t-sm);
+  color: var(--muted);
+}
+
+.ix__foot ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+}
+
+.ix__foot a:hover {
+  color: var(--fg);
+}
+
+@media (min-width: 48em) {
+  .ix__item {
+    grid-template-columns: 4rem 1fr auto;
+  }
+
+  .ix__meta {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ix[open] .ix__item {
+    animation: ix-in 0.8s var(--ease) both;
+    animation-delay: calc(var(--n, 0) * 50ms);
+  }
+
+  .ix__list li:nth-child(2) .ix__item { --n: 1; }
+  .ix__list li:nth-child(3) .ix__item { --n: 2; }
+  .ix__list li:nth-child(4) .ix__item { --n: 3; }
+  .ix__list li:nth-child(5) .ix__item { --n: 4; }
+  .ix__list li:nth-child(6) .ix__item { --n: 5; }
+}
+
+@keyframes ix-in {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+}
+
+html.ix-open {
+  overflow: hidden;
+}

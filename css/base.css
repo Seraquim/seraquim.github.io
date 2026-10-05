@@ -1,0 +1,139 @@
+/* ==========================================================================
+   Base — reset, body, links, focus, utilities.
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--f-sans);
+  font-size: var(--t-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+h1, h2, h3, p, ol, ul, dl, dd, figure {
+  margin: 0;
+}
+
+h1, h2, h3 {
+  font-weight: 500;
+}
+
+ol[role="list"],
+ul[role="list"] {
+  list-style: none;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 1px solid var(--fg);
+  outline-offset: 4px;
+}
+
+main:focus {
+  outline: none;
+}
+
+/* --- Utilities ----------------------------------------------------------- */
+
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: var(--t-sm);
+  transform: translateY(-200%);
+}
+
+.skip:focus {
+  transform: none;
+}
+
+/* Small metadata labels. */
+.label {
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Underline that draws in on hover. */
+.line {
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  transition: background-size 0.5s var(--ease);
+}
+
+.line:hover,
+.line:focus-visible {
+  background-size: 100% 1px;
+}
+
+/* A text link with an arrow that leans forward on hover. */
+.arrow {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: var(--t-sm);
+}
+
+.arrow::after {
+  content: "→";
+  transition: transform 0.4s var(--ease);
+}
+
+.arrow:hover::after {
+  transform: translateX(0.3rem);
+}
